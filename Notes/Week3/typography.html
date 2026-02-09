@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Intro to CSS Text and Spans</title>
+    <style type="text/CSS">
+        /* universal selector - always the first CSS rule because the intent is to reset and then overwrite
+        with more specific styles/selectors further down */
+        * {
+            /* border: 1px solid blue; */
+            margin: 0;
+            padding: 0;
+        }
+         /* tag selector applies to all p tags on the page */
+         p {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #f50;
+            /* above is short hand for #ff5500; */
+            font-family: 'Courier New', Courier, monospace;
+         }
+         a {
+            color: cornflowerblue;
+            text-decoration: none;
+            font-weight: 900;
+         }
+         .silly_text {
+            font-family: fantasy;
+            font-size: 1.5rem;
+         }
+         #important_stuff {
+            font-size: xx-large;
+            font-weight: bold;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+            color:chartreuse;
+         }
+    </style>
+  </head>
+  <body>
+    <p id="important_stuff">This is important.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu laoreet magna. 
+        Nullam ac scelerisque nisl, et bibendum mauris. Proin in elit lobortis, ultrices est a, dictum ligula. 
+        Nullam a interdum ligula, nec volutpat elit. Orci varius natoque penatibus et magnis dis parturient montes,
+         nascetur ridiculus mus. <a href="#" class="silly_text">Suspendisse iaculis metus vel aliquet imperdiet.</a> Pellentesque nisi diam, elementum 
+         ut scelerisque commodo, lacinia sed augue. Maecenas eu sem in nisl dapibus dignissim. Quisque nec 
+         ullamcorper orci, sit amet finibus purus. Morbi non massa efficitur, tincidunt diam et, imperdiet dolor. 
+         Etiam odio leo, malesuada eu pharetra sit amet, imperdiet nec ex. Proin venenatis accumsan metus, sit amet 
+         semper metus pretium eget. Proin sit amet faucibus risus, in scelerisque erat. Ut a ex sem. Phasellus 
+         hendrerit malesuada arcu ac vestibulum. Nam eu viverra lectus.
+    </p>
+    <p>Ut efficitur dictum tempor. Sed eu fringilla magna. Ut cursus laoreet diam, at lobortis lacus porttitor ac.
+         Phasellus sit amet odio efficitur, sollicitudin nulla eget, molestie tortor. Praesent sit amet tincidunt
+          lorem, ac aliquam diam. <span class="silly_text">Duis massa ante, tempus nec risus non, posuere sodales dui. Maecenas pellentesque
+           sollicitudin metus vulputate viverra. </span>Phasellus accumsan eu magna quis rhoncus. Lorem ipsum dolor sit 
+           amet, consectetur adipiscing elit. Suspendisse molestie congue mi, eget rutrum orci tempor eget. Nunc eu 
+           venenatis ante. Phasellus odio eros, scelerisque nec tempus quis, accumsan at quam. Ut purus justo, 
+           iaculis et accumsan id, blandit non ex. Aliquam non vehicula arcu.
+    </p>
+    <p>Nulla cursus enim ex, vitae cursus lorem rhoncus vitae. Quisque neque turpis, eleifend eleifend ligula 
+        elementum, vulputate molestie ligula. Curabitur quam enim, porta sit amet purus nec, tincidunt ornare dui. 
+        Morbi lobortis mauris nibh, a faucibus libero aliquam eleifend. Duis dapibus semper faucibus. Sed nec 
+        tortor eu lorem commodo aliquam at sed elit. Duis maximus sapien nulla, eu congue nulla interdum sed. 
+        Cras ornare tempus leo eget blandit. Morbi nec elit in odio cursus dapibus. Praesent non rhoncus enim. 
+        Fusce semper placerat tincidunt. Pellentesque iaculis tristique dolor sed blandit. Curabitur a quam id
+         nibh mollis pulvinar. Aenean eget justo convallis, dignissim dui non, vulputate leo. Maecenas volutpat 
+         pretium sem eu pharetra. Suspendisse lacinia felis nec nulla sodales convallis.
+    </p>
+  </body>
+</html>
