@@ -13,10 +13,66 @@ html {
     background: url('../img/bg.jpg') no-repeat center center fixed;
     background-size: cover;
 }
+/* Main navigation */
+header {
+    width: 80%;
+    padding: 0 10%;
+    height: 50px;
+    overflow: hidden;
+    position: fixed;
+    background-color: grey;
+    z-index: 100;
 
+    /* flexbox container properties */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:  center;
+
+}
+
+header h1 {
+    color: #ffff;
+    text-shadow: 2px 2px 5px rgba(0.40);
+
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    background-color: rgba(0,0,0,0.4);
+}
+
+nav li {
+    font-size: 1.25rem;
+    height: 50px;
+    line-height: 50px;
+    width: 120px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #EEE;
+    display: block;
+    transition: all 1ms;
+}
+
+nav.a:hover {
+    color: red;
+    background-color: rgba(0,0,0,0.8);
+}
+
+nav a.active {
+    background-color: black;
+    color: yellow;
+}
+
+/* gallery grid */
 .container {
     width: 900px;
     margin: 0 auto;
+    padding-top: 100px;
     /* remember to zero out font size of the container of inline block
     dont forget to bring that font size back in  */
     font-size: 0;
@@ -46,6 +102,73 @@ instead we make the image width 100% of its parents, then we assign dimensions *
     bottom: 9px;
     width: 280px;
     text-align: center;
+}
+
+/* transforms and transitions*/
+
+.scale_up {
+    transform : scale(1.2); 
+    z-index: 10;
+}
+
+.scale_x {
+    transform: scale(2,1);
+}
+
+.scale_y {
+    transform: scaleY(2);
+}
+
+.skew_x {
+    transform: skewX(-20deg);
+}
+
+.skew_y {
+    transform: skewY(-20deg);
+}
+
+.skew_both {
+    transform: skew(10deg, 30deg);
+}
+
+.rot_x {
+    transform: rotateX(120deg);
+}
+
+.rot_y {
+    transform: rotateX(120deg);
+}
+
+.rot_z {
+    transform: rotateX(120deg);
+}
+
+.rotate_left {
+    transform: rotate(-20deg);
+    transition: all 5s ease;
+}
+
+.rotate_left:hover {
+    transform: rotate(20deg);
+    cursor: pointer;
+}
+
+.skew_hover {
+    transform: skewX(-30deg);
+    transition: all 5s ease;
+}
+
+.skew_hover:hover {
+    transform: skewX(30deg);
+}
+
+.color_swap {
+    filter: grayscale(100%) blur(5px);
+    transition: all 5s ease;
+}
+
+.color_swap:hover {
+    filter: grayscale(0) blur(0);
 }
 
 
