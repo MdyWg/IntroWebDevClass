@@ -1,0 +1,90 @@
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+img {
+    width: 100%;
+}
+
+/* Flexbox Container and Item Styles */
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* some styles so that we can see our containers */
+    border: 1px solid purple;
+    background-color: rgba(255,0,255,.3);
+    min-height: 400px;
+}
+
+.item {
+    /* flex item properties */
+    width: 21%;
+    height: 300px;
+    /* so we can see them */
+    border: 1px solid cornflowerblue;
+    background-color: rgba(0,0,255,.3);
+}
+
+/* Atomic CSS Design Pattern */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* justify content (horizontal in row layout) */
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+/* Align Items */
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-self {
+    align-self: stretch;
+    /* needed when flex items have set height */
+    height: auto;
+}
+
