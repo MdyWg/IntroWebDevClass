@@ -24,6 +24,9 @@ html {
 .content-body {
     margin: 30px 15% 5% 12%;
     padding-bottom: 2rem;
+    position: relative;
+    background-color: var(--c-b);
+    border-radius: 10px;
 }
 
 .tab1 { 
@@ -39,25 +42,17 @@ html {
     --pg-bg: var(--l-bg3); 
 }
 
-@layer cb {
-    .content-body {
-        position: relative;
-        background-color: var(--c-b);
-        border-radius: 10px;
-    }
-
-    .content-body::before {
-        content: "";
-        position: absolute;
-        top: -30px;
-        right: -30px;
-        bottom: -30px;
-        left: -30px;
-        background-image: var(--pg-bg);
-        background-repeat: repeat;
-        border-radius: 10px;
-        z-index: -1;
-    }
+.content-body::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    bottom: -30px;
+    left: -30px;
+    background-image: var(--pg-bg);
+    background-repeat: repeat;
+    border-radius: 10px;
+    z-index: -1;
 }
 
 nav {
