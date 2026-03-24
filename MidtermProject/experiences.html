@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Mandy's Portfolio</title>
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li class="tab1 purple"><a href="home.html">Home</a></li>
+                    <li class="tab2 purple"><a href="about.html">About Me</a></li>
+                    <li class="tab3 purple"><a href="experiences.html">Experiences</a></li>
+                    <li class="tab4 purple"><a href="contact.html">Contact</a></li>       
+                </ul>  
+            </nav>
+        </header>
+        <div class="content-body purple tab3">
+            <ul id = "exp-nav">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#activities" >Activities</a></li>
+            </ul>
+            <h2 id = "projects">Projects</h2>
+            <div class = "content">
+                <img src="./img/vvlogo.jpg" alt="Vibration Vest Logo" class="exp-img"/>
+                <section>
+                    <h3>Audio Vibration Vest</h3>
+                    <hr>
+                    <p>An accessible wearable vest meant for deaf individuals that translates audio into vibrations via Fast Fourier Transform (FFT). This was done as part of my 
+                        introductory engineering class, where I worked with a partner on a semester long design project. Notable components include
+                        the usage of an Arduino Mega, Raspberry Pi 4, and eight vibration motors soldered and wired to two motor drivers.
+                    </p>
+                </section>
+            </div>
+            <div class = "content">
+                <section class="left">
+                    <h3>Lunar Exploration Rover</h3>
+                    <hr>
+                    <p>
+                        As part of the competition for the VIP I'm currently in (RDT), the subsystem I'm in 
+                        is responsible for the software of an autonomous rover that can traverse on a lunar surface 
+                        and excavate and deposite lunar regolith. The software is written primarily with ROS2 in Python.
+                        Notable autonomy components involve RTAB-MAP for obstacle detection and mapping, AprilTag detection for localization,
+                        NAV2 for path planning, and state machine logic for autonomy cycles. To simulate the rover, we use Gazebo as a model.
+                    </p>
+                </section>
+                <img src="./img/rover.png" alt="Rover model" class="exp-img"/>
+            </div>
+            <h2 id = "activities">Activities</h2>
+            <div class = "content">
+                <img src="./img/cs1113.png" alt="CS1113 attendance tracker" class="exp-img"/>
+                <section>
+                    <h3>Computer Science Course Assistant</h3>
+                    <hr>
+                    <p>I currently work as a CS course assistant for CS 1113. As a course assistant, I teach weekly lab sections, host office hours, 
+                        and conduct homework and quiz gradings for students.
+                    </p>
+                </section>
+            </div>
+            <div class = "content">
+                <section class = "left">
+                    <h3>Robotic Design Team</h3>
+                    <hr>
+                    <p>One of the leads for the Robotic Design Team's (RDT) software competency, whose goal is to participate
+                        in NASA's Lunabotics competition. More specifically, I am currently the software systems engineer and
+                        I work with the mechanical and electrical systems engineers to plan and design robot requirements and 
+                        specifications.
+                    </p>
+                </section>
+                <img src="./img/rdt-logo.png" alt="RDT logo" class="exp-img"/>
+
+            </div>
+        </div>
+    </body>
+</html>

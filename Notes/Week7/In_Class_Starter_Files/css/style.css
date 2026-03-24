@@ -1,0 +1,33 @@
+/* Global styles */
+/* take into account borders and padding in our set dimensions of any BOX */
+* {
+    box-sizing: border-box;
+
+}
+
+/* zero out annoying margins */
+html, body {
+    margin: 0;
+}
+
+/* scale img to fit their parent container element */
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* desktop first styling */
+/* JUMBOTRON */
+
+div.hero {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.hero article {
+    position: absolute;
+    bottom: 15%;
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>CSS Vars | Contact Us</title>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap');
+
+      :root {
+        --c-bg:#e2e8f0;
+        --c-text:#475569;
+        --c-bg-btn:#1e293b;
+        --c-bg-btn-hov:#64748b;
+        --c-btn-text:#f8fafc;
+
+        --ff-heading:"Press Start 2P", system-ui;
+        --ff-body:"Share Tech Mono", monospace;
+
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      .container {
+        width: 50%;
+        margin: 10% auto;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        color: var(--c-text);
+        background-color: var(--c-bg);
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .label-lg {
+        font-size: 2rem;
+
+      }
+
+      .input-lg {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid gray;
+        margin-right: 2rem;
+      }
+
+      .message-area {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        font-size: 2rem;
+      }
+
+      .message {
+        height: 16rem;
+        border-radius: 0.25rem;
+        padding: 1rem;
+      }
+
+      .button-bar {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      .btn-dark {
+        width: 100%;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+        padding: 1rem;
+        border-color: var(--c-btn-text);
+        color: var(--c-btn-text);
+        background-color: var(--c-bg-btn);
+      }
+
+      .btn-dark:hover {
+        background-color: var(--c-bg-btn-hov);
+      }
+    </style>
+
+
+
+  </head>
+  <body id = "blue">
+
+    <div class="container">
+      <h1>Get in Touch!</h1>
+      <form action="https://formspree.io/f/xeeraneb" method="POST">
+        <div class="row">
+          <label for="name" class="label-lg">Name: </label>
+          <input type="text" name="name" class="input-lg" required/>
+
+          <label for="email" class="label-lg">Email: </label>
+          <input type="text" name="email" class="input-lg" required/>
+        </div>
+        <div class="message-area">
+          <label for="message">Leave us a Message!</label>
+          <textarea name="message" class="message" placeholder="Drop us a question or comment!" required></textarea>
+        </div>
+        <div class="button-bar">
+          <button class="btn-dark" type="submit">Send</button>
+        </div>
+        <input type="hidden" name="subject" value="New submission from {{name}}" />
+      </form>
+    </div>
+  </body>
+</html>

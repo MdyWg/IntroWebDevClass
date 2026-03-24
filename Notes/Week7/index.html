@@ -5,14 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Responsive 101</title>
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <script type="text/Javascript">
+      // function toggleShow() {
+      //   // get the UL from our main nav and store the element itself as a js variable
+      //   var menu = document.getElementById("menu")
+      //   // if menu's classlist property contains show, remove it. 
+      //   // if it does not contain show, add it
+      //   if (menu.classList.contains("show")) {
+      //     console.log("has show in classlist, removing now")
+      //     menu.classList.remove("show")
+      //   } else {
+      //     console.log("does not have show in classlist, adding now")
+      //     menu.classList.add("show")
+      //   }
+      // }
+      
+
+      
+    </script>
   </head>
   <body>
     <header>
       <h1 class="brand"><a href="#">Logo</a></h1>
       <!-- Hide this till we hit smaller screens! -->
-      <span class="mobile-menu">&#8801;</span>
+      <span class="mobile-menu" id="mobile-menu">&#8801;</span>
       <nav>
-        <ul class="menu">
+        <ul class="menu" id="menu">
           <li><a href="#">Link 1</a></li>
           <li><a href="#">Link 2</a></li>
           <li><a href="#">Link 3</a></li>
