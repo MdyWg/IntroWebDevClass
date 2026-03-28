@@ -1,5 +1,5 @@
 /* always load dependencies first - fonts, css variables, other stylesheets */
-@import url('var.css');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 
 /* generic to specific with out styles */
 * {
@@ -8,9 +8,9 @@
 }
 
 html {
-    font-family: var(--main-font);
+    font-family: 'Kaushan Script', cursive;
     /* this is where we woulld declare and use a full size image background */
-    background: var(--bg-image) no-repeat center center fixed;
+    background: url('../img/bg.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 /* Main navigation */

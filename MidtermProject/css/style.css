@@ -7,7 +7,6 @@
 
 html {
     background-color: var(--c-bg);
-    opacity: 0.8;
     background-image: linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(to right, #ffffff 1px, var(--c-bg) 1px);
     background-size: 20px 20px;
     font-family: var(--ff-content);
@@ -50,13 +49,11 @@ html {
     bottom: -30px;
     left: -30px;
     background-image: var(--pg-bg);
-    background-repeat: repeat;
     border-radius: 10px;
     z-index: -1;
 }
 
 nav {
-    height: 50px;
     width: 60%;
     margin-top: 10%;
     margin-left: 10.5%;
@@ -71,7 +68,6 @@ ul {
 nav li {
     font-size: 1.25rem;
     line-height: 50px;
-    border: none;
     width: 100%;
     margin-right: -5%;
     clip-path: polygon(13% 25%, 20% 10%, 80% 10%, 87% 25%, 100% 100%, 0% 100%);
@@ -191,15 +187,20 @@ p {
     font-size: 1.25rem;
     line-height: 50px;
     width: 100%;
-    padding: 0 5%;
+    padding: 0% 5%;
     margin-top: 5%;
     background-color: white;
-    opacity: 0.8;
+    cursor: pointer;
     background-image:  linear-gradient(135deg, var(--c-bg) 25%, transparent 25%), linear-gradient(225deg, var(--c-bg) 25%, transparent 25%), linear-gradient(45deg, var(--c-bg) 25%, transparent 25%), linear-gradient(315deg, var(--c-bg) 25%, #ffffff 25%);
     background-position:  10px 0, 10px 0, 0 0, 0 0;
     background-size: 20px 20px;
-    background-repeat: repeat;
     background-clip: content-box;
+    transition: opacity 0.3s ease;
+
+}
+
+#exp-nav li:hover {
+    opacity: .5;
 }
 
 .exp-img {
@@ -229,7 +230,6 @@ p {
 .fa {
     padding: 30px 40px;
     font-size: 150px;
-    margin: 5%;
     color: white;
     display: flex;
     justify-content: center;
@@ -247,8 +247,10 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transform: translateY(100%);
+    /* pull down mask to bottom */
+    transform: translateY(100%); 
     transition: transform 0.5s ease;
+    pointer-events: none;
 }
 
 .icon-mask span {
@@ -261,11 +263,13 @@ p {
 }
 
 .icon:hover .icon-mask {
+    /* return to original position overlay */
     transform: translateY(0);
 }
 
+/* text scales and grows in */
 .icon:hover .icon-mask span {
-    opacity: 1;
+    opacity: 1; 
     transform: translateY(0) scale(1);
 }
 
@@ -318,7 +322,7 @@ p {
 }
 
 .input-lg {
-    padding: 0.5rem;
+    padding: 0.5rem 2rem;
     border-radius: 0.5rem;
     border: 1px solid gray;
     margin: 0 1.5rem;
@@ -340,15 +344,18 @@ p {
 .button-bar {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
 }
 
 .btn-dark {
-    width: 100%;
+    width: 50%;
     border-radius: 0.5rem;
     margin-top: 2rem;
-    padding: 1rem;
+    padding: .5rem;
     border-color: black;
     background-color: var(--c-bd);
+    font-size: 1.5rem;
+    font-family: var(--ff-content);
 }
 
 .btn-dark:hover {
@@ -383,6 +390,10 @@ p {
         padding: 5%;
     }
 
+    .left {
+        padding: 5%;
+    }
+
     /* contact page */
     #contact-list {
         flex-wrap: wrap;
@@ -392,7 +403,6 @@ p {
     }
 
     .icon {
-        flex-direction: column;
         align-items: center;
         text-align: center;
         width: 120px;
@@ -401,17 +411,10 @@ p {
 
     .icon-mask {
         position: static;  
-        opacity: 1;
         transform: none;       
         background: none; 
         margin-top: 0.5rem; 
-        padding: 0;
-        flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
-        gap: 2px;
-        pointer-events: none;
-        transition: none;
     }
 
     .icon:hover .icon-mask {
@@ -473,15 +476,17 @@ p {
     }
 
     ul {
-        flex-wrap: nowrap;
         padding: 0 10px;
+    }
+
+    #exp-nav li:hover {
+        opacity: 1;
     }
 
     /* horizontal scroll */
     nav li {
         flex: 0 0 auto;
         max-width: 250px;
-        text-align: center;
         font-size: 1rem;
         margin: 0;
         clip-path: polygon(13% 25%, 20% 10%, 80% 10%, 87% 25%, 100% 100%, 0% 100%);
@@ -499,7 +504,6 @@ p {
         transform: translateY(-50%);
         font-size: 1.5rem;
         font-weight: 700;
-        color: black;
         opacity: 0.5;
         pointer-events: none;
         z-index: 20;
