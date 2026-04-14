@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fetch | Async | Await</title>
+    <!-- Today we are going to hit 2 different API endpoints and dynamically insert HTML -->
+    <!-- Rick and Morty Character Stats, change character index to select (random) -->
+    <!-- https://rickandmortyapi.com/api/character/1 -->
+    <!-- Random Quote API Endpoint -->
+    <!-- https://quote-garden.onrender.com/api/v3/quotes/random -->
+    <!--
+    We will need to look at adding callback functions when our async functions complete
+    with .then()  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
+    -->
+    <!-- We will format our messages using template literals
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals 
+    -->
+    <!-- Write our first arrow function
+      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+    -->
+    <!-- Destructuring Objects
+      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+    -->
+
+    <style type="text/css">
+      /* Some custom fonts from google */
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+      * {
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      #card {
+        width: 25rem;
+        margin: 0 auto;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        /* from Orbitron font documentation */
+        font-family: 'Orbitron', sans-serif;
+      }
+
+      #inspo {
+        font-family: 'Rock Salt', cursive;
+        width: 50%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card">
+      <h3 id="characterName"></h3>
+      <table id="charInfo">
+      <br/>
+      <!-- Add this for first function -->
+      <div id="message"></div>
+    </div>
+
+    <div id="inspo">
+      <p class="fancy"></p>
+      <p class="plain"></p>
+    </div>
+        <script type="text/javascript">
+      // Our handle random number within a range util from week08
+      function randNumRange(min, max) {
+        var rn = Math.round(Math.random() * (max - min) + min)
+        // return a value from our function
+        return rn
+      }
+
+      // flag the function as async, without this we cannot use await within
+      async function logApiResults() {
+        // generate a random number within our know character range
+        const randomIndex = randNumRange(0, 110)
+        // tell JS to pause until this next line resolves
+        // we can use template strings/literals here to insert our random number into the url
+        const response = await fetch(
+          `https://rickandmortyapi.com/api/character/${randomIndex}`
+        )
+        // we also need to tell JS to pause here, since it is dependent on the previous line
+        // forgetting await here will just log a Promise
+        const result = await response.json()
+        // useful methods we have access to at this point:
+        // .json() - returns the result as JSON
+        // .ok = a boolean we can use to check !response.ok means we should throw an erorr or backup message
+        // .blob() - great for fetching an image file
+
+        // More template literals to spit out a human readable sentence
+        const message = `${result.name} is a ${result.species} from ${result.origin.name}, and they are ${result.status}`
+        console.log(message)
+      }
+
+      //logApiResults()
+
+      //write a function to return our API result
+      //we will use our helper function to get a random index to return a random character
+      const fetchCharacterJSON = async () => {
+        // generate a random number for our random index
+        const randomIndex = randNumRange(0, 111)
+        // ping API with random index variable
+        const response = await fetch(
+          `https://rickandmortyapi.com/api/character/${randomIndex}`
+        )
+        // once we have our response we want to format it as usable data with .json()
+        const result = await response.json()
+        return result
+      }
+
+      const renderCharacterInfo = (data) => {
+        //grab our parent element in HTML
+        const characterMessage = document.getElementById('message')
+        //format our message using template literals 
+        //but first we will destructure our first object
+        const {name, species, origin, status} = data
+        const message = `${name} is a ${species} from ${origin.name}, and they are ${status}`
+        //now we can appen this message to our HTML element
+        characterMessage.append(message)
+
+      }
+
+      //another callback function for after we fetch our data
+      //this one will populate the rest of the card
+      const renderCharacterCard = (data) => {
+        //do some variations on dynamic HTML DOM manipulation
+        const parentElement = document.getElementById('card')
+        //use a template literal to insert some HTML from a string
+        const headShot = `<img src="${data.image}" alt="${data.name} headshot">`
+        //.insertAdjacentHTML(position, string version of html) 
+        parentElement.insertAdjacentHTML('afterbegin', headShot)
+
+        const title = document.getElementById('characterName')
+        title.append(data.name)
+        const charInfo = document.getElementById('charInfo')
+        // another insert adjacent html instance this one beforeEnd
+        const stats = `
+        <tr>
+          <th>Species</th>
+          <td>${data.species}</td>
+        </tr>
+        <tr>
+          <th>Origin</th>
+          <td>${data.origin.name}</td>
+        </tr>
+        <tr>
+          <th>Status</th>
+          <td>${data.status}</td>
+        </tr>
+        `
+        charInfo.insertAdjacentHTML('beforeend', stats)
+      }
+
+      //as soon as we have a line of code referencing html elements on the page, we know we need a DOMContentLoaded event listener
+      document.addEventListener('DOMContentLoaded', function () {
+        fetchCharacterJSON().then((data) => {
+          renderCharacterInfo(data)
+          renderCharacterCard(data)
+        })
+      }
+    )
+    </script>
+  </body>
+</html>
