@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Grid</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      div {
+        background-color: rgba(0,0,255,0.2);
+        border-radius: 1rem;
+        min-height: 100px;
+      }
+
+      /* .row is a bootstrap class that makes a flex row, we are just adding more properties to an existing class */
+      .row {
+        margin-top: 1rem;
+        background-color: rgba(255,0,0,0.2);
+        min-height: 200px;
+      }
+
+      /* custom class we need to apply  as well when needed*/
+      .row-custom {
+        min-height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bootstrap Grid System</h1>
+    <p>Containers have a max width! This example has 1 row and 3 columns decided by number of "col" classes within a row div. (simple flexbox logic) </p>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">Col Class</div>
+        <div class="col">Col Class</div>
+        <div class="col">Col Class</div>
+        <div class="col">Col Class</div>
+      </div>
+
+        <div class="container-fluid text-center">
+        <div class="col">Col Class</div>
+        <div class="col">Col Class</div>
+        <div class="col">Col Class</div>
+        <div class="col">Col Class</div>
+      </div>
+
+      <p>Every time you want a new row in BS grid system while using the 'col' class, you must make a new row div!</p>
+
+      <div class="container text-center">
+        <div class = "row">
+          <div class="col">1</div>
+          <div class="col">2</div>
+          <div class="col">3</div>
+          <div class="col">4</div>
+        </div>
+          <div class = "row">
+          <div class="col">1</div>
+          <div class="col">2</div>
+          <div class="col">3</div>
+        </div>
+        <div class = "row">
+          <div class="col">1</div>
+          <div class="col">2</div>
+        </div>
+      </div>
+
+      <p>col class will figure out the leftover space when mixed with number math</p>
+
+      <div class="container">
+        <div class="row">
+          <div class="col">4/12</div>
+          <div class="col-6">50%</div>
+          <div class="col">25%</div>
+        </div>
+
+        <div class="row">
+          <div class="col">25%</div>
+          <div class="col-6">50%</div>
+          <div class="col-md-12">100%</div>
+        </div>
+
+      </div>
+
+      <p>Using infixes and multiple classes to define different layouts for different screen sizes.
+        Remember NO infix = mobile first layout
+      </p>
+
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-8"></div>  
+        </div>
+      </div>
+
+      <h2>Padding and Gutters</h2>
+      <div class="container text-center">
+        <div class="row gx-5">
+          <div class="col">No Gutters</div>
+          <div class="p3">This div has custom padding</div>
+          <div class="col">No Gutters</div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col">Gutters</div>
+          <div class="col">Gutters</div>
+          <div class="col">Gutters</div>
+        </div>
+
+        <div class="row g-5">
+          <div class="col">More Gutters</div>
+          <div class="col">More Gutters</div>
+          <div class="col">More Gutters</div>
+        </div>
+
+
+        <h2>Offsets!</h2>
+
+
+
+  </body>
+</html>

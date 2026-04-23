@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Hello, <span id="user">world!</span></h1>
+
+      <form id="userInfo" class="shadow-sm p-3 mb-5 bg-body-tertiary">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            name="firstName"
+            placeholder="name@example.com"
+          />
+          <label for="firstName">First Name:</label>
+        </div>
+        <button type="submit" class="btn btn-outline-info btn-lg" id="nameBtn">
+          Submit
+        </button>
+      </form>
+      <button type="button" class="btn btn-outline-danger" id="clearBtn">
+        Clear Current User Data
+      </button>
+    </div>
+
+    <script>
+      // add an event listener to each button
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('nameBtn').addEventListener('click', () => {
+          saveUser()
+        })
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+          clearLocalStorage()
+        })
+
+        // when the page loads check local storage and see if firstName exists
+        if (localStorage.firstName) {
+          // if it does, set the innerHtml of our span to be the name
+          document.getElementById('user').innerHTML = localStorage.firstName
+        }
+      })
+
+      // have a function for when the user hits submit that saves the firstName field to local storage
+      const saveUser = () => {
+        const name = document.getElementById('firstName').value
+        localStorage.firstName = name
+      }
+      // have a function to clear out any local storage in this webpage on this browser
+      const clearLocalStorage = () => {
+        localStorage.clear() // this deletes all local storage, to remove one use removeItem(ItemKey)
+        // we want a page refresh
+        window.location.reload()
+      }
+    </script>
+  </body>
+</html>

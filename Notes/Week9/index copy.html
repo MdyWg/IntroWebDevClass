@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Math Methods</title>
+    <script>
+      // declare a variable with a name and assign it a value
+      var x = 15 // integer
+      var y = 35 // integer
+      var z // declaring a variable but not assigning a value immediately
+      // we can assign a value at any time
+      z = 10.5 // float
+
+      // addition
+      console.log(x + y)
+      //subtraction
+      console.log(x - y)
+      //multiplication
+      console.log(x * y)
+      //division
+      console.log(x / y)
+      // modulus
+      // modular operator % returns the remainder of a division
+      // this is really helpful when we want to use odd/even or every nth item
+      console.log(10 % 3) // print 1
+      console.log(11 % 3) // print 2
+      console.log(12 % 3) // print 0
+
+      // just like in algebra order of operations matters!
+      console.log((x + y) * (y - 1))
+      console.log(x + y * y - 1)
+
+      // increment
+      x++ // x = x + 1
+      // decrement
+      x-- // x = x - 1
+      // increment by a certain number
+      x += 2 // x = x + 2
+      // decrement by a certain number
+      x -= 3 // x = x-3
+
+      // floating point numbers and basic math functions
+      var k = 2.55
+      // Math.floor always rounds down, Math.ceil always rounds up - regardless of the decimal
+      var kDown = Math.floor(k)
+      var kUp = Math.ceil(k)
+      console.log('kDown: ', kDown, 'kUp: ', kUp)
+
+      // Math.round rounds up and down based on the old decimal rules
+      console.log(Math.round(k))
+
+      // Math.random() returns a floating point number between 0 and 1
+
+      console.log(Math.random())
+      // we can use Math.random with Math.round to get the whole numbers 0 or 1
+      // true false boolean situation
+      var yn = Math.round(Math.random())
+      console.log(yn)
+
+      if (yn === 0) {
+        console.log('lights OFF')
+      } else {
+        console.log('lights ON!')
+      }
+
+      // random number between 0 and num
+      // we will need to make a function that take a num parameter
+      function randNum(num) {
+        // when we declare a variable inside of a function that variable is scoped!
+        var rn = Math.round(num * Math.random())
+        console.log(rn)
+      }
+      randNum(80)
+
+      // a function to return a random number within a range, that means we need a min and a max parameter
+
+      function randNumRange(min, max) {
+        var rn = Math.round(Math.random() * (max - min) + min)
+        return rn
+      }
+
+      var rand1 = randNumRange(20, 50)
+      var rand2 = randNumRange(900, 5000)
+
+      console.log(rand1, rand2)
+    </script>
+  </head>
+  <body></body>
+</html>

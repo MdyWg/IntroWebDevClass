@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geolocation Demo</title>
+
+    <style>
+      /* ---- BASIC PAGE STYLING ---- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 0 20px;
+        text-align: center;
+        color: #1a1a1a;
+      }
+
+      h1 {
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        color: #6b7280;
+        margin-bottom: 32px;
+      }
+
+      /* ---- BUTTON STYLING ---- */
+      button {
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #2563eb;
+      }
+
+      /* ---- RESULT BOX ---- */
+      #result {
+        margin-top: 24px;
+        padding: 20px;
+        background-color: #f3f4f6;
+        border-radius: 8px;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      /* ---- DETAIL TABLE (shown after location is found) ---- */
+      .details-table {
+        margin: 20px auto 0;
+        text-align: left;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .details-table td {
+        padding: 8px 12px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .details-table td:first-child {
+        font-weight: bold;
+        color: #374151;
+        width: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Where Am I?</h1>
+    <p class="subtitle">A live demo of the browser's Geolocation API</p>
+
+    <button id="findMe">Find My Location</button>
+
+    <div id="result">Click the button to find your location.</div>
+
+    <script>
+      let result
+
+      document.addEventListener('DOMContentLoaded', () => {
+        result = document.getElementById('result')
+
+        document.getElementById('findMe').addEventListener('click', findMe)
+      })
+
+      const findMe = () => {
+        // show a loading message to give immediate feedback that something is actually happening
+        result.textContent = 'Looking for your location...'
+
+        // first way geolocation can fail - it isn't supported by the browser
+        // aka the geolocation object does not exist inside the navigator object
+        if (!('geolocation' in navigator)) {
+          /// if !navigation.geolocation
+          result.textContent =
+            'Sorry your browser does not support geolocation for some reason.'
+          return // stop here, nothing else we can do so exist the function early
+        }
+
+        //if we made it here, geolocation is supported
+        // onSuccess receives a position object
+        // on error receives an error object with 2 keys code and message
+        navigator.geolocation.getCurrentPosition(onSuccess, onError)
+      }
+
+      const onSuccess = (position) => {
+        // console.log(position)
+        let lat = position.coords.latitude
+        let lon = position.coords.longitude
+        let accuracy = position.coords.accuracy
+        let altitude = position.coords.altitude
+        let speed = position.coords.speed
+
+        result.innerHTML = `
+          <table class="details-table">
+            <tr>
+              <th>Latitude</th>
+              <td>${lat}</td>
+            </tr>
+            <tr>
+              <th>Longitude</th>
+              <td>${lon}</td>
+            </tr>
+            <tr>
+              <th>Accuracy</th>
+              <td>${accuracy}</td>
+            </tr>
+            <tr>
+              <th>Altitude</th>
+                <td>${altitude != null ? Math.round(altitude) + ' meters' : 'Not Available'}</td>
+            </tr>
+            <tr>
+              <th>Speed</th>
+              <td>${speed != null ? Math.round(speed) + ' m/s' : 'Not Available'}</td>
+            </tr>
+          </table>
+        `
+        // ternary = shorthand conditional = condition ? what to do if true : what to do if false
+      }
+
+      const onError = (error) => {
+        console.log('Geolocation error', error.code, error.message)
+
+        result.textContent = `Geolocation error, #${error.code}, ${error.message}`
+      }
+    </script>
+  </body>
+</html>

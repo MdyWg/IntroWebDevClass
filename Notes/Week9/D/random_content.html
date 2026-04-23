@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Random Content</title>
+    <script>
+      // 2 arrays with corresponding content for random picks
+      var arrImg = [
+        'https://images2.minutemediacdn.com/image/upload/c_fill,w_2160,ar_16:9,f_auto,q_auto,g_auto/shape%2Fcover%2Fsport%2FiStock-177369626-1-0e8d40eaabe65d2cb2d745ef45f09229.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hausziege_04.jpg/500px-Hausziege_04.jpg',
+        'https://nationalzoo.si.edu/sites/default/files/styles/wide/public/paragraphs/single_image/20180628-634sb.jpg?h=6acbff97&itok=ox7HF_H4',
+      ]
+
+      var arrLinks = [
+        'https://www.mentalfloss.com/article/61542/15-amazing-things-you-probably-didnt-know-about-goats',
+        'https://en.wikipedia.org/wiki/Goat',
+        'https://nationalzoo.si.edu/animals/goat',
+      ]
+
+      // helper function for picking a random number between 0 and max
+      function randomIndex(max) {
+        return Math.floor(Math.random() * max)
+      }
+
+      // write our own function outside of our event listeners
+      // remember not to call any functions that reference any HTML elements before the DOM loads
+      function loadRandomImage() {
+        // generate a random index
+        var index = randomIndex(arrImg.length)
+        // grab our html elements so we can edit their attributes
+        var img = document.getElementById('animal')
+        var link = document.getElementById('dynLink')
+
+        // assign the src attribute of the image tag to a string from our arrImg sources
+        img.src = arrImg[index]
+        // same thing for the href in the anchor tag
+        link.href = arrLinks[index]
+      }
+
+      // always use an event listener when you are calling functions that reference a HTML element
+      document.addEventListener('DOMContentLoaded', function () {
+        loadRandomImage()
+      })
+    </script>
+  </head>
+  <body>
+    <a href="#" id="dynLink" target="_blank"><img src="" id="animal" /></a>
+  </body>
+</html>
