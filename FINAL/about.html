@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Mandy's Portfolio</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li class="tab1 purple"><a href="home.html">Home</a></li>
+                    <li class="tab2 purple"><a href="about.html">About Me</a></li>
+                    <li class="tab3 purple"><a href="experiences.html">Experiences</a></li>
+                    <li class="tab4 purple"><a href="projects.html">Projects</a></li>
+                    <li class="tab5 purple"><a href="contact.html">Contact</a></li>       
+                </ul>  
+            </nav>
+        </header>
+        </nav>
+
+        </header>
+        <div class="content-body purple tab2">
+            <div class="content" id="about-content">
+                <img src="./img/mandy.jpg" alt="Mandy's professional picture" id="profile" class="purple"/>
+                <section id="about-section">
+                    <h1>About Me</h1>
+                    <p id="about-p">
+                        Hello! My name is Mandy and I am a sophomore at NYU majoring in Computer Science. I am interested in
+                        sofware engineering and robotics, and hope to pursue a future in those fields. In my free time, I like to
+                        listen to music, fold origami, and do word puzzles.
+                    </p>
+                </section>
+            </div>
+            <div id="about-border"></div>
+            <section id="skills-section">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-row" data-level="8"><span class="skill-name">Python</span></div>
+                        <div class="skill-row" data-level="4"><span class="skill-name">JavaScript</span></div>
+                        <div class="skill-row" data-level="7"><span class="skill-name">HTML / CSS</span></div>
+                        <div class="skill-row" data-level="5"><span class="skill-name">C++</span></div>
+                        <div class="skill-row" data-level="5"><span class="skill-name">SQL</span></div>
+                        <div class="skill-row" data-level="3"><span class="skill-name">Java</span></div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools</h3>
+                        <div class="skill-row" data-level="8"><span class="skill-name">Git</span></div>
+                        <div class="skill-row" data-level="4"><span class="skill-name">Arduino</span></div>
+                        <div class="skill-row" data-level="8"><span class="skill-name">Raspberry Pi</span></div>
+                        <div class="skill-row" data-level="6"><span class="skill-name">Gazebo</span></div>
+                        <div class="skill-row" data-level="7"><span class="skill-name">Linux</span></div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Other</h3>
+                        <div class="skill-row" data-level="10"><span class="skill-name">Google Slides</span></div>
+                        <div class="skill-row" data-level="8"><span class="skill-name">ROS2</span></div>
+                        <div class="skill-row" data-level="6"><span class="skill-name">Microsoft Office</span></div>
+                        <div class="skill-row" data-level="4"><span class="skill-name">Fusion360</span></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script src="./js/script.js"></script>
+    </body>
+</html>
